@@ -1,10 +1,10 @@
+let yesButton = document.getElementById("yes");
 let noButton = document.getElementById("no");
 let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
 
 const params = new URLSearchParams(window.location.search);
-let usernalet yesButton = document.getElementById("yes");
-me = params.get("name");
+let username = params.get("name");
 
 // 限制用户名长度，避免页面样式崩坏
 const maxLength = 20;
