@@ -1,10 +1,10 @@
-let yesButton = document.getElementById("yes");
 let noButton = document.getElementById("no");
 let questionText = document.getElementById("question");
 let mainImage = document.getElementById("mainImage");
 
 const params = new URLSearchParams(window.location.search);
-let username = params.get("name");
+let usernalet yesButton = document.getElementById("yes");
+me = params.get("name");
 
 // 限制用户名长度，避免页面样式崩坏
 const maxLength = 20;
@@ -22,7 +22,7 @@ const noTexts = [
   "？你认真的吗…",
   "要不再想想？",
   "不许选这个！ ",
-  "伤心…",
+  "我会很伤心…",
   "不行:(",
 ];
 
@@ -44,7 +44,18 @@ noButton.addEventListener("click", function () {
   questionText.style.transform = `translateY(-${moveUp}px)`;
 
   // No 文案变化（前 5 次变化）
-  
+  if (clickCount <= 5) {
+    noButton.innerText = noTexts[clickCount - 1];
+  }
+
+  // 图片变化（前 5 次变化）
+  if (clickCount === 1) mainImage.src = "images/hug.png"; // 震惊
+  if (clickCount === 2) mainImage.src = "images/hug.png"; // 思考
+  if (clickCount === 3) mainImage.src = "images/hug.png"; // 生气
+  if (clickCount === 4) mainImage.src = "images/hug.png"; // 哭
+  if (clickCount >= 5) mainImage.src = "images/hug.png"; // 之后一直是哭
+});
+
 // Yes 按钮点击后，进入表白成功页面
 const loveTest = `!!!666 ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
