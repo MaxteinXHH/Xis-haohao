@@ -44,19 +44,7 @@ noButton.addEventListener("click", function () {
   questionText.style.transform = `translateY(-${moveUp}px)`;
 
   // No 文案变化（前 5 次变化）
-  if (clickCount <= 5) {
-    noButton.innerText = noTexts[clickCount - 1];
-  }
-
-  // 图片变化（前 5 次变化）
-  if (clickCount === 1) mainImage.src = "images/shocked.png"; // 震惊
-  if (clickCount === 2) mainImage.src = "images/think.png"; // 思考
-  if (clickCount === 3) mainImage.src = "images/angry.png"; // 生气
-  if (clickCount === 4) mainImage.src = "images/crying.png"; // 哭
-  if (clickCount >= 5) mainImage.src = "images/crying.png"; // 之后一直是哭
-  mainImage.src = "heart.png";
-});
-
+  
 // Yes 按钮点击后，进入表白成功页面
 const loveTest = `!!!666 ( >᎑<)♡︎ᐝ  ${
   username ? `${safeUsername}  ♡︎ᐝ(>᎑< )` : ""
