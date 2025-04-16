@@ -11,10 +11,10 @@ const username = params.get("name");
 // 安全处理用户名
 const sanitizeUsername = (name) => {
   const maxLength = 20;
-  if (!name) return "???";
+  if (!name) return "嘻嘻";
   // 过滤 HTML 特殊字符
   const safeName = name.replace(/[<>]/g, "").substring(0, maxLength);
-  return safeName || "???";
+  return safeName || "嘻嘻";
 };
 
 const safeUsername = sanitizeUsername(username);
