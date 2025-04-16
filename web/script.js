@@ -8,7 +8,7 @@ let username = params.get("name");
 
 // 限制用户名长度，避免页面样式崩坏
 const maxLength = 20;
-const safeUsername = username ? username.substring(0, maxLength) : "???";
+const safeUsername = username ? username.substring(0, maxLength) : "";
 
 // 防止 `null` 变成 `"null"`
 if (username) {
