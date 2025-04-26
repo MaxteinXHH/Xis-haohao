@@ -46,7 +46,8 @@
             align-items: center;
         }
 
-        .image-container img {
+        .image-container img,
+        .image-container video {
             max-width: 100%;
             height: auto;
             max-height: 100%;
@@ -54,7 +55,8 @@
             display: none;
         }
 
-        .image-container img.active {
+        .image-container img.active,
+        .image-container video.active {
             display: block;
         }
 
@@ -144,12 +146,12 @@
         </div>
     </div>
     <div class="image-container">
-        <span class="nav prev" onclick="prevImage()"><</span>
+        <span class="nav prev" onclick="prevMedia()"><</span>
         <img src="image1.jpg" alt="Image 1" class="active">
-        <img src="image01.jpg" alt="Image 4">
-        <img src="image5.jpg" alt="Image 2">
+        <video src="c45c.mp4" alt="Video 1" controls preload="auto"></video>
+         <video src="c46c.mp4" alt="Video 2" controls preload="auto"></video>
         <img src="image02.jpg" alt="Image 5">
-        <span class="nav next" onclick="nextImage()">></span>
+        <span class="nav next" onclick="nextMedia()">></span>
     </div>
     <div class="link-container">
         <div class="link-row">
@@ -161,32 +163,39 @@
         <div class="link-row">
             <a href="https://mhaoma.baidu.com/pages/search-page/search-page?srcid=10685&query=17364686746"> [ 与我联系 ]</a>
             <a href="https://maxteinxhh.github.io/Xis-haohao/web/inx.html">[ 访问旧网页 ]</a>
-            <a href="https://maxteinxhh.github.io/xishao/index.html">[ 新网页 ]</a>
+            <a href="https://maxteinxhh.github.io/xishao/index.html">[ 更多内容 ]</a>
         </div>
     </div>
     <div class="bottom-section">
         <p>嘻嘻</p>
     </div>
     <script>
-        let currentImageIndex = 0;
-        const images = document.querySelectorAll('.image-container img');
+        let currentMediaIndex = 0;
+        const mediaElements = document.querySelectorAll('.image-container img, .image-container video');
 
-        function showImage(index) {
-            images.forEach((img, i) => {
-                img.classList.toggle('active', i === index);
+        function showMedia(index) {
+            mediaElements.forEach((media, i) => {
+                media.classList.toggle('active', i === index);
+                if (media.tagName === 'VIDEO') {
+                    if (i === index) {
+                        media.play();
+                    } else {
+                        media.pause();
+                    }
+                }
             });
         }
 
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            showImage(currentImageIndex);
+        function prevMedia() {
+            currentMediaIndex = (currentMediaIndex - 1 + mediaElements.length) % mediaElements.length;
+            showMedia(currentMediaIndex);
         }
 
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            showImage(currentImageIndex);
+        function nextMedia() {
+            currentMediaIndex = (currentMediaIndex + 1) % mediaElements.length;
+            showMedia(currentMediaIndex);
         }
     </script>
 </body>
 
-</html>
+</html>    
