@@ -63,7 +63,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            color: white; /* 将箭头颜色改为白色 */
+            color: white;
             cursor: pointer;
             user-select: none;
         }
@@ -79,19 +79,33 @@
         .link-container {
             text-align: center;
             margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
         .link-container a {
-            display: block;
+            display: inline-block;
             color: #007BFF;
             text-decoration: none;
-            margin: 0.25rem 0;
-            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
         .link-container a:hover {
             color: #0056b3;
             text-decoration: underline;
+            background-color: rgba(0, 123, 255, 0.1);
         }
 
         .bottom-section {
@@ -100,12 +114,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* 新增样式让文本居中 */
         }
 
         .bottom-section p {
             margin: 0;
-            /* 文本相关样式 */
         }
     </style>
 </head>
@@ -132,11 +144,18 @@
         <span class="nav next" onclick="nextImage()">></span>
     </div>
     <div class="link-container">
-        <a href=" https://maxteinxhh.github.io/Xis-haohao/web/index.html">欢迎访问我的网站</a>
-        <a href=" https://maxteinxhh.github.io/Xis-haohao/web/index.html"> ･◡･ </a>
-        <a>  </a>
-        <a href="https://mhaoma.baidu.com/pages/search-page/search-page?srcid=10685&query=17364686746"> [与我联系]</a>
-        <a href="https://maxteinxhh.github.io/Xis-haohao/web/inx.html">[访问旧网页（哦嗨呦......)]</a>
+        <div class="link-row">
+            <a href=" https://maxteinxhh.github.io/Xis-haohao/web/index.html">欢迎访问我的网站</a> 
+	</div>
+	<div class="link-row">
+            <a href=" https://maxteinxhh.github.io/Xis-haohao/web/index.html"> ･◡･ </a>
+        </div>
+        <div class="link-row">
+            <a href="https://mhaoma.baidu.com/pages/search-page/search-page?srcid=10685&query=17364686746"> [ 与我联系 ]</a>
+            <a href="https://maxteinxhh.github.io/Xis-haohao/web/inx.html">[ 访问旧网页 ]</a>
+	    <a href="https://maxteinxhh.github.io/xishao/index.html">[ 新网页 ]</a>
+
+
     </div>
     <div class="bottom-section">
         <p>嘻嘻</p>
