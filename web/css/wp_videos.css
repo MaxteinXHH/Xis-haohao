@@ -1,0 +1,65 @@
+﻿
+/* CSS Document */
+.wp_videos {}
+.wp_videos .playwrap { position:relative;}
+.wp_videos .playwrap .playbox { background:url(../image/loading.gif) no-repeat center;}
+.wp_videos .playwrap .playpage { width:100%; height:20px; line-height:20px; position:absolute; left:0; top:0; z-index:100; background:#000; display:none;}
+.wp_videos .playwrap .playpage a{ display:inline-block; width:16px; height:16px; line-height:16px; text-align:center; font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#000; background:#e5e5e5; margin:2px; cursor:pointer;}
+.wp_videos .playwrap .playpage a.active { background:#C00; color:#fff;}
+.wp_videos .playwrap .playlist li { vertical-align:top;}
+
+/**player-type-1**/
+.wp_videos .player-type-1 .playlist li { cursor:pointer; height:23px; line-height:23px; overflow:hidden; padding:0 20px; position:relative; display:none;}
+.wp_videos .player-type-1 .playlist li.playing { display:block;}
+.wp_videos .player-type-1 .playlist li .video_icon { display:block; width:16px; height:10px; overflow:hidden; background:url(../image/video.png) no-repeat 0 0; position:absolute; left:0; top:6px;}
+.wp_videos .player-type-1 .playlist li .video_title { display:block; overflow:hidden;}
+.wp_videos .player-type-1 .playlist li a.video_link { display:block; width:10px; height:10px; overflow:hidden; position:absolute; right:0; top:6px; cursor:pointer; background:url(../image/link.png) no-repeat 0 0;}
+.wp_videos .player-type-1 .playlist li a.video_link:hover { background-position: 0 -10px;}
+.wp_videos .player-type-1 .playlist li .video_thumb { display:none;}
+
+/**player-type-2**/
+.wp_videos .player-type-2 .playlist li { cursor:pointer; height:23px; line-height:23px; overflow:hidden; position:relative; padding:0 20px; border-bottom:1px dashed #ccc;}
+.wp_videos .player-type-2 .playlist li.playing { background-color:#f4f4f4;}
+.wp_videos .player-type-2 .playlist li .video_icon { display:block; width:16px; height:10px; overflow:hidden; background:url(../image/video.png) no-repeat 0 0; position:absolute; left:0; top:6px;}
+.wp_videos .player-type-2 .playlist li.playing .video_icon { background-position:0 -10px;}
+.wp_videos .player-type-2 .playlist li .video_title { display:block; overflow:hidden;}
+.wp_videos .player-type-2 .playlist li a.video_link { display:block; width:10px; height:10px; overflow:hidden; position:absolute; right:0; top:6px; cursor:pointer; background:url(../image/link.png) no-repeat 0 0;}
+.wp_videos .player-type-2 .playlist li a.video_link:hover { background-position: 0 -10px;}
+.wp_videos .player-type-2 .playlist li .video_thumb { display:none;}
+
+/**player-type-3**/
+.wp_videos .player-type-3 { background-color:#454545;}
+.wp_videos .player-type-3 .playlist { position:relative; overflow:hidden; margin-top:5px;}
+.wp_videos .player-type-3 .playlist ul { position:absolute; left:0; top:0;}
+.wp_videos .player-type-3 .playlist li { cursor:pointer; overflow:hidden; position:relative; display:inline-block; float:left;}
+.wp_videos .player-type-3 .playlist li.playing { background-color:#f4f4f4;}
+.wp_videos .player-type-3 .playlist li .video_icon { display:block; width:16px; height:10px; overflow:hidden; background:url(../image/video.png) no-repeat 0 0; position:absolute; left:4px; top:4px;}
+.wp_videos .player-type-3 .playlist li.playing .video_icon { background-position:0 -10px;}
+.wp_videos .player-type-3 .playlist li .video_title { display:block; width: 100%; height:30px; line-height:15px; overflow:hidden; position:absolute; left:0; bottom:0; z-index:10; color:#fff; font-size:12px; background:#000; opacity:0.8; filter:alpha(opacity=80);}
+.wp_videos .player-type-3 .playlist li .video_title .video_title_text { margin: 0 4px;}
+.wp_videos .player-type-3 .playlist li a.video_link { display:block; width:10px; height:10px; overflow:hidden; position:absolute; right:4px; top:4px; cursor:pointer; background:url(../image/link.png) no-repeat 0 0; z-index:10;}
+.wp_videos .player-type-3 .playlist li a.video_link:hover,.wp_videos .player-type-3 .playlist li.playing .video_link { background-position: 0 -10px;}
+.wp_videos .player-type-3 .playlist li .video_thumb { padding:2px; background:#242424;}
+.wp_videos .player-type-3 .playlist li.playing .video_thumb { background:#c01818;}
+.wp_videos .player-type-3 .playlist li .video_thumb img { width:100%; height:100%;}
+.wp_videos .player-type-3 .playnav { width:100%; height:7px; background:#242424; margin-top:5px; position:relative; cursor:default;}
+.wp_videos .player-type-3 .playnav .navbtn { width:52px; height:7px; background:#868686; overflow:hidden; position:absolute; left:0; top:0; z-index:100; cursor:pointer;}
+
+/**player-type-4**/
+.wp_videos .player-type-4 { background-color:#454545;}
+.wp_videos .player-type-4 .playlist { position:absolute; overflow:hidden; top:0; right:0; z-index:100; background:#242424;}
+.wp_videos .player-type-4 .playlist ul { position:absolute; left:5px; top:0;}
+.wp_videos .player-type-4 .playlist li { cursor:pointer; overflow:hidden; position:relative;}
+.wp_videos .player-type-4 .playlist li.eve { background:#363636;}
+.wp_videos .player-type-4 .playlist li.playing { background-color:#111;}
+.wp_videos .player-type-4 .playlist li .video_icon { display:block; width:16px; height:10px; overflow:hidden; background:url(../image/video.png) no-repeat 0 0; position:absolute; left:8px; top:8px;}
+.wp_videos .player-type-4 .playlist li.playing .video_icon { background-position:0 -10px;}
+.wp_videos .player-type-4 .playlist li .video_title { display:block; overflow:hidden; position:absolute; right:4px; top:4px; color:#f5f5f5; font-size:13px; line-height:19px;}
+.wp_videos .player-type-4 .playlist li.playing .video_title { color:#C01818}
+.wp_videos .player-type-4 .playlist li a.video_link { display:block; width:10px; height:10px; overflow:hidden; position:absolute; right:4px; bottom:4px; cursor:pointer; background:url(../image/link.png) no-repeat 0 0; z-index:10;}
+.wp_videos .player-type-4 .playlist li a.video_link:hover,.wp_videos .player-type-3 .playlist li.playing .video_link { background-position: 0 -10px;}
+.wp_videos .player-type-4 .playlist li .video_thumb { padding:4px;}
+.wp_videos .player-type-4 .playlist li.playing .video_thumb { }
+.wp_videos .player-type-4 .playlist li .video_thumb img { width:100%; height:100%;}
+.wp_videos .player-type-4 .playnav { width:15px; height:100%; background:#111; cursor:default; position:absolute; right:-10px; top:0; z-index:100;}
+.wp_videos .player-type-4 .playnav .navbtn { width:15px; height:45px; background:#848484; overflow:hidden; position:absolute; left:0; top:0; z-index:100; cursor:pointer;}
