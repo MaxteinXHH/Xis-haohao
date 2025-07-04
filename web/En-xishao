@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Xis-hao</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Product+Sans&display=swap');
+		
+					//个人学习网页
+
+					//本网页，为个人学习、研究或者欣赏。为个人非商业目的在单一台终端设备上安装、使用、显示、运行、传输或者存储。不向公众开放，原作者版权所有，是本网站的知识产权权利人。
+				
+					// 本网站如果使用了第三方的软件或技术，将按照相关法规或约定，对相关的协议或其他文件，可能通过附件、在特定文件夹中打包以及其他形式进行展示，它们可能会以“授权协议”、“开源代码许可证”或其他形式来表达。前述通过各种形式展现的相关协议或其他文件，均此网站是不可分割的组成部分。
+				//如果发现或收到他人举报或投诉私人使用或行为违反法律的，会不经通知随时对相关内容进行独立判断，并采取技术手段予以删除、屏蔽或断开链接，并视情节轻重采取包括但不限于暂停或终止本服务、追究法律责任等措施。
+
+
+
+
+
+
+        body {
+            font-family: 'Product Sans', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-section {
+            height: 12.33vh; /* 占页面前1/3 */
+            background-color: #FFB6C1;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .top-section img {
+            height: 40%;
+            margin-right: 1rem;
+        }
+
+        .text-container {
+            margin: 0;
+            font-size: calc(18.33vh * 1 / 5); /* 按比例调整字体大小 */
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        /* 修改的绿色框架 */
+        .green-section {
+            height: 6.67vh; /* 占页面的1/6 */
+            background-color: #4CAF50;
+            display: flex;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 0;
+        }
+        
+        /* 绿色区域按钮样式 */
+        .green-btn {
+            background-color:B0E0E6;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            margin: 0 2px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            height: 100%;
+        }
+        
+        .green-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            text-align: center;
+            position: relative;
+            height: 33.33vh; /* 占页面的1/3 */
+            border: 1px solid #ccc;
+            overflow: hidden;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img,
+        .image-container video {
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .image-container img.active,
+        .image-container video.active {
+            display: block;
+        }
+
+        .image-container .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .image-container .prev {
+            left: 10px;
+        }
+
+        .image-container .next {
+            right: 10px;
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .link-container a {
+            display: inline-block;
+            color: #007BFF;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* 修改特定链接的样式 */
+        .link-row:nth-child(1) a,
+        .link-row:nth-child(2) a {
+            color: #FFB6C1;
+            border: none;
+            padding: 0;
+        }
+
+        .link-container a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        .bottom-section {
+            height: 16.67vh; /* 占页面的1/6 */
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom-section p {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* 加载提示样式 */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        /* 隐藏页面内容 */
+        #content {
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 300px;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 加载提示 -->
+    <div id="loading">
+        <div>Loading.....</div>
+        <div id="countdown">2</div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
+    
+    <!-- 页面内容 -->
+    <div id="content">
+        <div class="top-section">
+            <img src="image0.jpg" alt="Inserted Image">
+            <div class="text-container">
+                <span class="text-blue-500">X</span>
+                <span class="text-blue-500">i</span>
+                <span class="text-blue-500">s</span>
+                <span class="text-blue-500">-</span>
+                <span class="text-blue-500">h</span>
+                <span class="text-blue-500">a</span>
+                <span class="text-blue-500">o</span>
+            </div>
+        </div>
+        
+        <!-- 修改后的绿色框架，分为6个按钮部分 -->
+        <div class="green-section">
+  <a href="https://maxteinxhh.github.io/xishao/index2.html" class="green-btn">🍀</a>
+  <a href="https://maxteinxhh.github.io/Xis-haohao/web/xishao.html" class="green-btn">Homepage</a>
+  <a href="https://maxteinxhh.github.io/xishao/index2.html" class="green-btn">1</a>
+  <a href="https://maxteinxhh.github.io/xishao/index2.html" class="green-btn">2</a>
+  <a href="https://maxteinxhh.github.io/xishao/index2.html" class="green-btn">3</a>
+  <a href="https://maxteinxhh.github.io/Xis-haohao/web/En-xishao.html" class="green-btn">中文简体</a>
+</div>
+        
+        <div class="image-container">
+            <span class="nav prev" onclick="prevMedia()">❮</span>
+            <img src="image1.jpg" alt="Image 1" class="active">
+            <video src="c45c.mp4" alt="Video 1" controls preload="auto"></video>
+            <video src="c46c.mp4" alt="Video 2" controls preload="auto"></video>
+            <img src="image02.jpg" alt="Image 5">
+            <span class="nav next" onclick="nextMedia()">❯</span>
+        </div>
+        
+        <div class="link-container">
+            <div class="link-row">
+                <a href="https://maxteinxhh.github.io/Xis-haohao/web/xishao.html">Welcome to my website</a>
+            </div>
+            <div class="link-row">
+                <a href="https://maxteinxhh.github.io/fun/xhd2.html"> ･◡･ </a>
+            </div>
+            <div class="link-row">
+                <a href="https://maxteinxhh.github.io/fun/xhd.html">[ Contact me ]</a>
+                <a href="https://maxteinxhh.github.io/Xis-haohao/web/inx.html">[ Visit the old web page ]</a>
+                <a href="https://maxteinxhh.github.io/xishao/index.html">[ Read more ]</a>
+            </div>
+        </div>
+        
+        <div class="bottom-section">
+            <p> thanks for visiting! Have a nice day 🌟</p>
+        </div>
+    </div>
+    
+    <script>
+        let currentMediaIndex = 0;
+        const mediaElements = document.querySelectorAll('.image-container img, .image-container video');
+        const loading = document.getElementById('loading');
+        const content = document.getElementById('content');
+        const countdown = document.getElementById('countdown');
+        const progress = document.getElementById('progress');
+        let seconds = 2;
+
+        // 更新进度条
+        function updateProgress(percent) {
+            progress.style.width = percent + '%';
+        }
+
+        // 倒计时函数
+        const countdownInterval = setInterval(() => {
+            seconds--;
+            countdown.textContent = seconds;
+            
+            // 更新进度条 (倒计时2秒，每100ms更新一次)
+            const elapsed = 2 - seconds;
+            const percent = (elapsed / 2) * 100;
+            updateProgress(percent);
+            
+            if (seconds === 0) {
+                clearInterval(countdownInterval);
+                // 隐藏加载提示
+                loading.style.display = 'none';
+                // 显示页面内容
+                content.style.display = 'block';
+            }
+        }, 1000);
+
+        function showMedia(index) {
+            mediaElements.forEach((media, i) => {
+                media.classList.toggle('active', i === index);
+                if (media.tagName === 'VIDEO') {
+                    if (i === index) {
+                        media.play();
+                    } else {
+                        media.pause();
+                    }
+                }
+            });
+        }
+
+        function prevMedia() {
+            currentMediaIndex = (currentMediaIndex - 1 + mediaElements.length) % mediaElements.length;
+            showMedia(currentMediaIndex);
+        }
+
+        function nextMedia() {
+            currentMediaIndex = (currentMediaIndex + 1) % mediaElements.length;
+            showMedia(currentMediaIndex);
+        }
+        
+        // 自动轮播
+        setInterval(nextMedia, 9000);
+    </script>
+</body>
+
+</html>
